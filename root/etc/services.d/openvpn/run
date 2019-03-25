@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv execlineb
+
+importas ovpnconf OVPNCONF
+foreground { s6-mkdir -pm 750 /var/run/openvpn }
+fdmove -c 2 1
+openvpn --config /config/${ovpnconf}
