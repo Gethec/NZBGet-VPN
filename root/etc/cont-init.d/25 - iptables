@@ -4,6 +4,7 @@ iptables --flush
 iptables --delete-chain
 iptables -t nat -F
 iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE
+iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i lo -m comment --comment "loopback" -j ACCEPT
 iptables -A OUTPUT -o lo -m comment --comment "loopback" -j ACCEPT
 iptables -I INPUT -i enp1s0 -m comment --comment "In from LAN" -j ACCEPT
