@@ -8,7 +8,9 @@ RUN apk add openvpn \
 
 #Set default container options
 ENV OVPNPORT="1194" \
-    OVPNCONF="vpn.conf"
+    OVPNCONF="vpn.conf" \
+    S6_BEHAVIOUR_IF_STAGE2_FAILS="2"
 
+COPY root/ /
 VOLUME /config /downloads
 EXPOSE 6789 1194/udp
