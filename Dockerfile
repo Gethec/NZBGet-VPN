@@ -2,7 +2,9 @@ FROM linuxserver/nzbget
 
 # Install updates and required packages
 RUN apk add openvpn \
-		iptables
+		iptables && \
+# Allow docker to be used as VPN router
+    echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 
 #Set default container options
 ENV OVPNPORT="1194" \
