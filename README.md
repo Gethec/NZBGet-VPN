@@ -1,4 +1,4 @@
-# ![NZBGet Icon](https://bytebucket.org/Gethec/nzbget-vpn/raw/master/resources/nzbget-small.png) NZBGet-VPN
+# ![NZBGet Icon](https://bitbucket.org/Gethec/nzbget-vpn/raw/master/resources/nzbget-small.png) NZBGet-VPN
 
 ## Disclaimer
 As with anything else, exposing your system to the Internet incurs risks!  This container does its best to be as secure as possible, but makes no guarantees to being completely impenetrable.  Use at your own risk, and feel free to suggest changes that can further increase security.
