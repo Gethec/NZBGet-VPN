@@ -23,15 +23,14 @@ The system comes supplied with predefined variables.  If you wish to change them
 
 
 #### Volumes
-No additional volumes are added to the base container's configuration.
+No additional volumes have been added.
 
 #### Ports
-No additional ports are added to the base container's configuration.
+No additional ports have been added.
 
 ## Setup
-To get this container to run, some additional parameters need to be added to the base container's command:
-*  `--cap-add=NET_ADMIN` - This allows IPTables to function
-*  `--device=/dev/net/tun` - The container does not include this device, and rather than re-add the package necessary to create it, it is easier to simply pass in the host's
+To get this container to run, you need to add an additional capability.  Add `--cap-add=NET_ADMIN` to the startup command to allow IPTables to work.
 
 ## Changelog
+* 0.0.2 - Now installs tun adapter on startup to remove need for host device.
 * 0.0.1 - Initial release
