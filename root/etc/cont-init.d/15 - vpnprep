@@ -2,7 +2,7 @@
 
 # Check to ensure VPN configuration is present
 if [ ! -e "/config/$OVPNCONF" ]; then
-    echo "Could not find requested VPN file: $OVPNCONF"
+    echo "Could not find required VPN file: $OVPNCONF"
     echo "Container is exiting"
     exit 1
 fi

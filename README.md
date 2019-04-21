@@ -4,22 +4,25 @@
 As with anything else, exposing your system to the Internet incurs risks!  This container does its best to be as secure as possible, but makes no guarantees to being completely impenetrable.  Use at your own risk, and feel free to suggest changes that can further increase security.
 
 ## About
-NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://github.com/linuxserver/docker-nzbget) with OpenVPN support added onto it.  The goal for this is to allow for users to channel NZBGet's traffic through a VPN connection.
+NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://github.com/linuxserver/docker-nzbget) with OpenVPN support added onto it.  The goal for this is to allow users to channel NZBGet's traffic through a VPN connection.
 
 Since this is basically their container, I encourage anyone who wants to use it to look at their documentation for the configuration of NZBGet itself.  This document will only discuss the configuration of the VPN element.
 
 ## Features
 * Linuxserver's excellent and constantly updated container used as a base
-* OpenVPN installation to tunnel container traffic through
+* Straightforward OpenVPN implementation to tunnel container traffic through
+
+## Setup
+The additional capability `--cap-add=NET_ADMIN` is required by IPTables to work.  Simply add this to the run command.
 
 ## Configuration
 The system comes supplied with predefined variables.  If you wish to change them, please see the table below for instructions. 
 
 #### Container variables
-| Variable | Default | Required | Example |
-|----------|---------|----------|---------|
-| OVPNPORT | 1194 | Only if your OpenVPN server uses a port other than the default |  `--env OVPNPORT=1198` |
-| OVPNCONF | vpn.conf | No | `--env OPVNCONF=config.conf` |
+|Variable|Default|Required|Example|
+|:---:|:---:|:---:|:---:|
+|OVPNPORT|1194|If your OpenVPN server uses a non-default port|`--env OVPNPORT=1198`|
+|OVPNCONF|vpn.conf|No|`--env OPVNCONF=config.conf`|
 
 
 #### Volumes
@@ -28,9 +31,6 @@ No additional volumes have been added.
 #### Ports
 No additional ports have been added.
 
-## Setup
-To get this container to run, you need to add an additional capability.  Add `--cap-add=NET_ADMIN` to the startup command to allow IPTables to work.
-
 ## Changelog
-* 0.0.2 - Now installs tun adapter on startup to remove need for host device.
+* 0.0.2 - Added install of tun adapter on startup to remove need for host device
 * 0.0.1 - Initial release
