@@ -12,10 +12,8 @@ iptables -F # Flush existing chain
 iptables -X # Delete existing user rules
 iptables -t nat -F # Flush existing NAT rules"
 iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE # Enable NAT
-iptables -A INPUT -p tcp --dport 80 -m comment --comment "Allow TCP access to GUI port" -j ACCEPT
 iptables -A INPUT -i lo -m comment --comment "Allow inbound loopback" -j ACCEPT
 iptables -A OUTPUT -o lo -m comment --comment "Allow outbound loopback" -j ACCEPT
-iptables -I INPUT -i eth+ -m comment --comment "In from LAN" -j ACCEPT
 iptables -I OUTPUT -o tun+ -m comment --comment "Out to VPN" -j ACCEPT
 iptables -A OUTPUT -o eth+ -p udp --dport $OVPNPORT -m comment --comment "Allow OpenVPN traffic" -j ACCEPT
 iptables -A OUTPUT -o eth+ -p udp --dport 123 -m comment --comment "Allow NTP" -j ACCEPT
