@@ -15,6 +15,8 @@ Since this is basically their container, I encourage anyone who wants to use it 
 ## Setup
 The additional capability `--cap-add=NET_ADMIN` is required by IPTables to work.  Simply add this to the run command.
 
+A route will also probably need to be added to your OpenVPN conf to allow access to the control interface.  Simply adding `route <LAN IP> <Netmask> <Docker Network Gateway IP>` to your config should resolve the connectivity issue.
+
 ## Configuration
 The system comes supplied with predefined variables.  If you wish to change them, please see the table below for instructions. 
 
