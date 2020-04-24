@@ -4,21 +4,22 @@
 As with anything else, exposing your system to the Internet incurs risks!  This container does its best to be as secure as possible, but makes no guarantees to being completely impenetrable.  Use at your own risk, and feel free to suggest changes that can further increase security.
 
 ## About
-NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://github.com/linuxserver/docker-nzbget) with OpenVPN support added onto it.  The goal for this is to allow users to channel NZBGet's traffic through a VPN connection.
+NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://github.com/linuxserver/docker-nzbget) with OpenVPN support added in.  The goal for this is to allow users to channel NZBGet's traffic through a secure and private VPN connection.
 
-Since this is basically their container, I encourage anyone who wants to use it to look at their documentation for the configuration of NZBGet itself.  This document will only discuss the configuration of the VPN element.
+Since this is basically their container, I strongly encourage anyone who wants to use it to look at their documentation for the configuration of NZBGet itself.  This document will only discuss the configuration of the OpenVPN element.
 
 ## Features
 * Linuxserver's excellent and constantly updated container used as a base
 * Straightforward OpenVPN implementation to tunnel container traffic through
 
 ## Setup
-The additional capability `--cap-add=NET_ADMIN` is required by IPTables to work.  Simply add this to the run command.
+1. Place the VPN configuration file in the host folder being mapped to the container's `/config` folder.  Make sure its name matches the one expected by the container (vpn.conf by default).
+2. The additional capability `--cap-add=NET_ADMIN` is required by IPTables to work.  Simply add this to the run command.
 
-A route will also probably need to be added to your OpenVPN conf to allow access to the control interface.  Simply adding `route <LAN IP> <Netmask> <Docker Network Gateway IP>` to your config should resolve the connectivity issue.
+A route will also probably need to be added to your OpenVPN config file to allow access to NZBGet's control interface.  Simply adding `route <LAN IP> <Netmask> <Docker Network Gateway IP>`  should resolve the connectivity issue.
 
 ## Configuration
-The system comes supplied with predefined variables.  If you wish to change them, please see the table below for instructions. 
+The container comes supplied with predefined variables.  If you wish to change them, please see the table below for instructions. 
 
 #### Container variables
 |Variable|Default|Required|Example|
