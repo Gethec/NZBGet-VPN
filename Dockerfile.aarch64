@@ -1,4 +1,4 @@
-FROM linuxserver/nzbget:latest
+FROM linuxserver/nzbget:arm64v8-latest
 
 #Set default container options
 ENV OVPNPORT="1194" \
