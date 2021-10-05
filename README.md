@@ -4,7 +4,7 @@
 As with anything else, exposing your system to the Internet incurs risks!  This container does its best to be as secure as possible, but makes no guarantees to being completely impenetrable.  Use at your own risk, and feel free to suggest changes that can further increase security.
 
 ## About
-NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://github.com/linuxserver/docker-nzbget) with OpenVPN support added in.  The goal for this is to allow users to channel NZBGet's traffic through a secure and private VPN connection.
+NZBGet-VPN is [Linuxserver's](https://www.linuxserver.io/) excellent [NZBGet container](https://hub.docker.com/r/linuxserver/nzbget) with OpenVPN support added in.  The goal for this is to allow users to channel NZBGet's traffic through a secure and private VPN connection.
 
 Since this is basically their container, I strongly encourage anyone who wants to use it to look at their documentation for the configuration of NZBGet itself.  This document will only discuss the configuration of the OpenVPN element.
 
