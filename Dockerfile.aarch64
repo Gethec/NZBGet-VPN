@@ -6,6 +6,8 @@ ENV OVPNPORT="1194" \
     S6_BEHAVIOUR_IF_STAGE2_FAILS="2"
 
 # Install updates and required packages
-RUN apk add openvpn iptables
+RUN apk add --no-cache \
+        openvpn \
+        iptables
 
 COPY root/ /
